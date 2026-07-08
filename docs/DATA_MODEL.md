@@ -8,6 +8,32 @@ This is a conceptual planning document for CAOV MVP 1.1. It is not a migration f
 Team -> Schedule -> Games -> Away Trips -> Trip Workspace -> Requests/Open Items -> Missing Inputs -> Trip Artifacts
 ```
 
+## MVP Data Model Clarifications
+
+- The repo previously referenced a flexible `logistics_items` concept in earlier planning.
+- `logistics_items` is now deprecated as the primary MVP workflow model.
+- `trip_requests` is the central flexible object for MVP request/confirmation workflows.
+- Specialized entities like `trip_services`, `trip_ticketing`, `trip_finance`, `trip_per_diem`, `travel_parties`, `rooming_lists`, and `artifact_exports` are future/conceptual unless explicitly pulled into an implementation task.
+- MVP schema should start small and should not implement every conceptual future table.
+- `docs/SCU_DEMO_DATA_REQUIREMENTS.md` should guide Santa Clara seed data and schema planning, but not every spreadsheet field should become a required MVP column.
+- First schema implementation should prioritize:
+  - `schools`
+  - `teams`
+  - `seasons`
+  - `schedules`
+  - `games`
+  - `trips`
+  - `trip_games`
+  - `contacts`
+  - `host_profiles`
+  - `trip_requests`
+  - `trip_tasks`
+  - `trip_documents`
+  - `trip_meals`
+  - `itinerary_events`
+
+Operational fields may eventually include metadata such as `source_type`, `review_status`, `visibility`, `confidence`, and `priority` so the app can distinguish user-entered values, parsed values, calculated values, AI suggestions, mock values, and missing inputs.
+
 ## Core MVP Entities
 
 MVP v1 should prioritize these entities:
@@ -25,33 +51,63 @@ MVP v1 should prioritize these entities:
 - `trip_tasks`
 - `trip_documents`
 - `trip_meals`
-- `trip_transportation`
-- `trip_hotels`
-- `trip_flights`
+- `itinerary_events`
 
 ## Central Entity: trip_requests
 
 `trip_requests` should be central because real away-trip logistics operate as request/confirmation workflows.
 
-Suggested fields:
+## trip_requests MVP Definition
+
+`trip_requests` is the core object for operational questions, requests, confirmations, handoffs, and open items.
+
+MVP statuses:
+
+- `draft`
+- `open`
+- `requested`
+- `routed`
+- `pending_confirmation`
+- `confirmed`
+- `needs_follow_up`
+- `blocked`
+- `completed`
+- `canceled`
+
+Minimum required fields:
 
 - `id`
 - `trip_id`
-- `request_category`
+- `category`
 - `title`
-- `description`
-- `requested_by_contact_id`
-- `assigned_to_contact_id`
-- `host_owner_contact_id`
 - `status`
+- `owner_type`
 - `priority`
-- `source_document_id`
-- `source_thread_id`
+- `created_at`
+- `updated_at`
+
+Optional fields:
+
+- `description`
+- `internal_owner_contact_id`
+- `host_owner_contact_id`
+- `requested_by_contact_id`
 - `due_date`
 - `confirmed_answer`
 - `confirmed_at`
+- `source_type`
+- `source_id`
 - `follow_up_needed`
 - `notes`
+
+Ownership rules:
+
+- `internal_owner_contact_id` = visiting/team-side owner accountable for making sure the item gets done.
+- `host_owner_contact_id` = host-side person responsible for answering or executing.
+- `requested_by_contact_id` = person who originally created or asked the item.
+- `owner_type` = `internal`, `host`, `vendor`, `business_office`, or `unknown`.
+
+For MVP v1, `trip_requests` should be flexible enough to represent practice requests, lift requests, laundry coordination, parking questions, pass-list handoffs, per diem/finance questions, showers, meals, staff seating, bat testing, and other host/visitor operations items.
 
 Suggested categories:
 
@@ -76,7 +132,7 @@ Suggested categories:
 
 ## Service / Handoff Entities
 
-These may be conceptual or later-stage entities, but the model should not block them:
+These are future/conceptual unless explicitly pulled into an implementation task:
 
 - `trip_services`
 - `trip_ticketing`
@@ -95,7 +151,6 @@ Real trip artifacts suggest these future entities:
 - `rooming_lists`
 - `room_assignments`
 - `room_assignment_members`
-- `itinerary_events`
 - `trip_artifacts`
 - `artifact_exports`
 
