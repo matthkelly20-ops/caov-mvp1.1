@@ -67,3 +67,39 @@ Reason: real trip documents show that coaches and staff produce travel party, ro
 Travel party and rooming list data should require privacy-aware handling.
 
 Reason: these artifacts can include player/staff names, DOBs, mobile numbers, room assignments, and other sensitive travel details.
+
+## Decision: trip_requests replaces logistics_items as the primary flexible MVP workflow object
+
+`trip_requests` should be the primary flexible MVP workflow object instead of `logistics_items`.
+
+Reason: The current MVP needs a flexible but explicit request/confirmation object. `trip_requests` is clearer than `logistics_items` because real workflows are based on requests, confirmations, ownership, routing, and follow-up.
+
+## Decision: MVP itinerary output should start as a web-based coach-ready trip packet
+
+The first itinerary/trip packet output should be a web-based coach-ready trip packet that is readable in the app and copy/print-friendly.
+
+Reason: The first demo needs a clear trip packet output, but PDF/export automation can wait. A web trip packet with copy/print-friendly structure is enough to validate the workflow.
+
+## Decision: The repo should remain docs-only until the first app scaffold is explicitly approved
+
+The repository should remain docs-only until the first Lovable/frontend app scaffold is explicitly approved.
+
+Reason: The current goal is to create a clean source-of-truth foundation before Lovable, Supabase, or Codex implementation begins.
+
+## Decision: Use docs/DATA_MODEL.md as the canonical data model file
+
+`docs/DATA_MODEL.md` should be the canonical data model file.
+
+Reason: The repo should avoid case-only duplicate filenames because they can cause checkout conflicts on macOS and confuse Codex/Lovable workflows.
+
+## Decision: SCU demo data should be represented as prioritized sections, not a flat field list
+
+The Santa Clara demo data should be represented as prioritized product sections rather than a flat list of every field from the original MVP inventory.
+
+Reason: The original MVP field inventory contains useful data architecture notes, but converting it directly into the UI would overwhelm users. The MVP should use the SCU data to seed a structured workspace with progressive disclosure.
+
+## Decision: MVP should use progressive disclosure for trip fields
+
+The MVP should use progressive disclosure for trip fields.
+
+Reason: The product may need to manage many operational data fields internally, but showing every possible field to users would overwhelm them. The MVP should surface only primary sections, missing inputs, open requests, confirmations, and final outputs by default.
