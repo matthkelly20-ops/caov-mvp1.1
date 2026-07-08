@@ -60,6 +60,7 @@ Schedule upload/manual entry
 - Preserve the University of Portland / Santa Clara baseball scenario as the primary MVP demo case unless explicitly instructed otherwise.
 - Do not commit raw private trip documents, personal phone numbers, DOBs, room pairings, payment handles, booking codes, or confirmation numbers.
 - Treat travel party and rooming data as sensitive.
+- The repo may be docs-only before the first app scaffold. Do not treat missing Lovable, frontend, or Supabase files as an error unless the user has already approved implementation.
 
 ## Workflow Rules
 
