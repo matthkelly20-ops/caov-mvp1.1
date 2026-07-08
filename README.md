@@ -1,140 +1,94 @@
-# caov-mvp1.1
-6Jul2026 MVP 1.1 Build Out
-# CAOV MVP 1.1
+# CAOV Away-Trip Operations Workspace
 
-CAOV is an AI-native college athletics operations platform.
+CAOV stands for **College Athletics Operations Venture**.
 
-The initial MVP focuses on helping college baseball programs turn a season schedule into structured away-trip operations workspaces.
+This repository is the MVP 1.1 build for CAOV: an AI-native college athletics operations product starting with baseball away-trip operations.
 
-The long-term vision is to build a system of action for college athletics operations: a platform that does not just store information, but helps staff plan, coordinate, execute, and continuously improve operational workflows.
+## MVP Wedge
 
----
+The current MVP wedge is:
 
-## MVP 1.1 Goal
+> Upload a schedule, and CAOV creates an operations workspace for each away trip — showing what’s known, what’s missing, what needs confirmation, who owns it, and what goes into the final itinerary.
 
-The goal of MVP 1.1 is to let a user upload or enter a college baseball schedule and automatically generate organized workspaces for away trips.
+The product promise is:
 
-Each trip workspace should help an operations user manage the core logistics around an away series, including:
+> We help college athletics teams execute away trips with less chaos, less manual work, and fewer missed details.
 
-- Game details
-- Opponent information
-- Travel dates
-- Lodging
-- Meals
-- Transportation
-- Contacts
-- Documents
-- Tasks and checklists
-- Missing information
+## What This MVP Is
 
-MVP 1.1 should feel like the first useful version of an athletics operations command center.
+MVP 1.1 should become an **Away-Trip Operations Workspace** for college baseball staff.
 
----
+It should help users:
 
-## Initial User
+1. Upload or enter a season schedule.
+2. Detect away games.
+3. Group away games into trips/series.
+4. Create a structured workspace for each trip.
+5. Track host logistics, contacts, requests, confirmations, open items, and missing inputs.
+6. Generate a coach-ready itinerary/trip packet from structured data.
 
-The first target user is a college baseball operations staff member, director of operations, graduate assistant, or coach responsible for away-trip planning.
+## What This MVP Is Not
 
-The initial product is designed around the real-world workflow of a college baseball staff member who needs to coordinate away-game logistics across coaches, players, host schools, travel vendors, and internal athletics staff.
+This MVP is not:
 
-The first demo scenario is based on University of Portland baseball travel.
+- A Teamworks replacement.
+- A generic AI travel planner.
+- A chatbot-first product.
+- A static visitor guide.
+- A full finance system.
+- A full ticketing system.
+- A fully automated booking system.
 
----
+Teamworks may remain the downstream publishing/distribution system. CAOV should own the upstream planning, validation, request tracking, and artifact-generation layer.
 
-## Core Product Thesis
+## Primary Demo Scenario
 
-College athletics operations work is fragmented across PDFs, emails, spreadsheets, texts, shared drives, static visitor guides, and personal knowledge.
+The first demo scenario is based on **University of Portland Baseball at Santa Clara University**.
 
-CAOV should help turn that fragmented information into a structured, queryable, and actionable workspace.
+This scenario should be used to test:
 
-The MVP starts with away-trip planning because it is a specific, painful, repeated workflow with clear inputs, outputs, and operational stakes.
+- Away-series grouping.
+- Trip workspace layout.
+- Host profile data.
+- Practice/game logistics.
+- Transportation, hotel, meals, and per diem notes.
+- Trip requests/open items.
+- Missing-input checklist.
+- Coach-ready itinerary output.
 
----
+## Core Product Model
 
-## Product Scope
+Real baseball travel workflows show this pattern:
 
-MVP 1.1 should support:
+- Host profile = reusable answers.
+- Trip workspace = trip-specific execution.
+- Trip requests = open operational questions and confirmations.
+- AI = parser, router, drafter, recommender, and memory layer.
 
-- Schedule upload or manual schedule entry
-- Away-game detection
-- Away-series grouping
-- Trip creation from away games or away series
-- Trip workspace generation
-- Editable logistics fields
-- Basic task and checklist tracking
-- Persistent storage in Supabase
-- A polished frontend suitable for demo conversations
-- A realistic University of Portland baseball demo flow
+Trip requests/open items should be first-class objects in the MVP.
 
-MVP 1.1 should not attempt to fully automate:
+## Source-of-Truth Docs
 
-- Booking travel
-- Processing payments
-- Managing budgets end-to-end
-- Replacing Teamworks
-- Coordinating every sport
-- Handling enterprise-wide athletics operations
-- Running fully autonomous AI agents without human review
+Future Codex sessions should read `AGENTS.md` first, then the project docs:
 
-The goal is not to build the whole company in this version.
-
-The goal is to prove that a schedule can become an organized, useful operations workspace.
-
----
-
-## Demo Outcome
-
-A successful MVP 1.1 demo should show that a user can:
-
-1. Upload or enter a college baseball schedule.
-2. Automatically identify away games.
-3. Group away games into trip workspaces.
-4. Open an individual trip workspace.
-5. View core trip information.
-6. Add or edit logistics details.
-7. Track missing information and operational tasks.
-8. Save the workspace in Supabase.
-9. Understand how this could reduce manual coordination work for athletics staff.
-
-The demo should make the product feel practical, grounded, and immediately understandable to someone who has worked in college athletics operations.
-
----
-
-## Technical Stack
-
-- Planning, strategy, and product direction: ChatGPT
-- Code generation and repo edits: Codex
-- Source of truth for code and documentation: GitHub
-- Frontend and app-building surface: Lovable
-- Backend database and structured data repository: Supabase
-
----
+- `CAOV_MASTER_PROJECT_FILE.md`
+- `docs/MVP_SCOPE.md`
+- `docs/SANTA_CLARA_SCENARIO.md`
+- `docs/DATA_MODEL.md`
+- `docs/AI_INTERACTION_MODEL.md`
+- `docs/REAL_TRIP_COMMUNICATION_PATTERNS.md`
+- `docs/TRIP_ARTIFACT_PATTERNS.md`
+- `docs/TRIP_DATA_MAPPING_PATTERNS.md`
+- `docs/DECISIONS.md`
+- `docs/CHANGELOG.md`
+- `docs/CODEX_TASKS.md`
 
 ## Working Model
 
-ChatGPT is used for product thinking, planning, scope control, documentation, and task definition.
+- Planning, strategy, and product direction: ChatGPT.
+- Code generation and repo edits: Codex.
+- Source of truth for code and documentation: GitHub.
+- Frontend and app-building surface: Lovable.
+- Backend database and structured data repository: Supabase.
 
-Codex is used to implement clearly scoped code changes, create files, refactor code, generate migrations, and push updates to GitHub.
-
-GitHub is the canonical source of truth for the codebase and project documentation.
-
-Lovable is used to build, render, and iterate on the application experience using the connected GitHub repo.
-
-Supabase is used as the system of record for structured product data, including schedules, games, trips, logistics, tasks, contacts, and documents.
-
----
-
-## Project Structure
-
-```text
-/docs
-  CAOV_Context.md
-  MVP_1.1_Spec.md
-  Data_Model.md
-  Codex_Instructions.md
-
-/src
-  App source code
-
-/supabase
-  Migrations, seed data, and database-related files
+The immediate goal is to prove that a baseball schedule can become a useful away-trip operations workspace before expanding into broader athletics operations workflows.
