@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-07-07 — SCU demo data requirements and field prioritization
+
+Docs-only update.
+
+- Added sanitized SCU demo data requirements.
+- Added MVP field prioritization guidance.
+- Clarified which prototype fields are MVP-visible, derived, collapsed, future, mock, or deleted.
+- Added progressive disclosure principle.
+- Linked SCU demo data requirements to MVP scope, data model, and Codex task planning.
+
+## 2026-07-07 — Data model filename casing cleanup
+
+Docs-only update.
+
+- Resolved data model filename casing conflict by standardizing on `docs/DATA_MODEL.md`.
+
+## 2026-07-07 — Implementation-readiness clarifications
+
+Docs-only update.
+
+- Clarified `trip_requests` as the primary MVP workflow object.
+- Deprecated `logistics_items` as the primary model.
+- Added `trip_requests` statuses, ownership rules, and required fields.
+- Defined the first itinerary/trip packet output format.
+- Updated Codex task order for a docs-only repo preparing for clean app scaffolding.
+- Confirmed that missing Lovable/Supabase files are expected at this stage.
+
 ## 2026-07-07 — Docs foundation for CAOV MVP 1.1
 
 Docs-only update.
