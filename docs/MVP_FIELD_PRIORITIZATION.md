@@ -68,6 +68,14 @@ Use these visibility levels:
 - `future`: retained as product direction but not implemented in MVP v1.
 - `not_applicable`: hidden or removed for the current trip.
 
+## Timing Field Guidance
+
+Pre-game timing fields should generally be calculated or suggested from game time using `docs/BASEBALL_TIMING_RULES.md`, not manually asked one by one.
+
+For example, if first pitch is known, CAOV can suggest visiting team BP, visitor infield, umpire meeting, national anthem, and first pitch itinerary events.
+
+These timing events should remain editable and should be marked `needs_review` until confirmed by the host school, official game sheet, or user.
+
 ## MVP User Experience Rule
 
 The MVP should feel like an operations workspace, not a spreadsheet recreated as a form.
