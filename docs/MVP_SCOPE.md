@@ -51,6 +51,39 @@ Trip requests/open items should be first-class objects.
 
 Real workflows show that away-trip logistics are request/confirmation workflows, not just notes in an itinerary. The MVP should explicitly represent open questions, owners, statuses, confirmed answers, and follow-up needs.
 
+## SCU Demo Data and Field Prioritization
+
+The University of Portland at Santa Clara demo should follow:
+
+- `docs/SCU_DEMO_DATA_REQUIREMENTS.md` for sanitized demo data categories, treatment types, and priority fields.
+- `docs/MVP_FIELD_PRIORITIZATION.md` for progressive-disclosure guidance.
+
+MVP v1 should avoid presenting a long flat checklist or spreadsheet-style setup form. The app should use progressive disclosure so users see confirmed summaries, missing inputs, open requests, upcoming deadlines, and itinerary/trip packet preview first.
+
+## First Itinerary Output Format
+
+MVP v1 should generate a coach-ready web trip packet first. It should be readable in the app and copy/export-friendly as Markdown or printable from the browser.
+
+Do not implement PDF export yet.
+
+The first trip packet should include:
+
+- Trip title.
+- Travel party count.
+- Key contacts.
+- Day-by-day schedule.
+- Flights.
+- Ground transportation.
+- Hotel.
+- Meals/per diem.
+- Practice/lift.
+- Games.
+- Requests/open items.
+- Missing inputs.
+- Notes.
+
+The itinerary/trip packet should be generated from structured data. Unknown or unconfirmed items should remain visible as open items or missing inputs, not hidden or guessed.
+
 ## Required Workspace Sections
 
 A trip workspace should eventually include:
