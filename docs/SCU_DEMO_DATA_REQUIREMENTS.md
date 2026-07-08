@@ -295,6 +295,12 @@ MVP treatment:
 - Final coach itinerary/trip packet should be the first generated artifact.
 - Athlete itinerary, travel party, rooming list, and closeout packet can be future artifacts.
 
+## Pre-Game Timing Note
+
+Pre-game timing for the Santa Clara demo may be generated from first pitch using `docs/BASEBALL_TIMING_RULES.md`.
+
+Generated timing should be treated as suggested and marked `needs_review` until confirmed by the host school, official game sheet, or user.
+
 ## Progressive Disclosure Rule
 
 The app should not show all demo fields at once.
