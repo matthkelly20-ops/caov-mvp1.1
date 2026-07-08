@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-07-07 — Baseball timing rules
+
+Docs-only update.
+
+- Added baseball timing rules from pre-game countdown pattern.
+- Clarified that pre-game timing should be generated as suggested itinerary events from first pitch.
+- Added verification rule that generated timing remains `needs_review` until confirmed.
+- Linked baseball timing rules to SCU demo data requirements, field prioritization, and data model planning.
+
 ## 2026-07-07 — SCU demo data requirements and field prioritization
 
 Docs-only update.
