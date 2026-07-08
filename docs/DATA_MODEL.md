@@ -16,6 +16,7 @@ Team -> Schedule -> Games -> Away Trips -> Trip Workspace -> Requests/Open Items
 - Specialized entities like `trip_services`, `trip_ticketing`, `trip_finance`, `trip_per_diem`, `travel_parties`, `rooming_lists`, and `artifact_exports` are future/conceptual unless explicitly pulled into an implementation task.
 - MVP schema should start small and should not implement every conceptual future table.
 - `docs/SCU_DEMO_DATA_REQUIREMENTS.md` should guide Santa Clara seed data and schema planning, but not every spreadsheet field should become a required MVP column.
+- `docs/BASEBALL_TIMING_RULES.md` should guide generated pre-game timing assumptions, but timing templates should remain future/conceptual unless explicitly pulled into implementation.
 - First schema implementation should prioritize:
   - `schools`
   - `teams`
@@ -156,6 +157,35 @@ Real trip artifacts suggest these future entities:
 
 Not every entity needs to be fully implemented in MVP v1. The goal is to keep the model extensible so CAOV can eventually generate final artifacts before Teamworks upload or team/staff distribution.
 
+## Future Timing Template Entities
+
+Baseball pre-game timing rules suggest these future/conceptual entities:
+
+- `timing_templates`
+- `timing_template_events`
+- `team_timing_preferences`
+
+Do not make timing templates required MVP schema unless explicitly requested. For MVP v1, pre-game timing can be generated using internal logic from `docs/BASEBALL_TIMING_RULES.md` and stored as suggested `itinerary_events` with `review_status = needs_review`.
+
+Suggested fields for future `timing_template_events`:
+
+- `sport`
+- `template_name`
+- `event_type`
+- `offset_from_game_start_minutes`
+- `duration_minutes`
+- `applies_to`
+- `source_type`
+- `review_status`
+
+Suggested `applies_to` values:
+
+- `home_team`
+- `visiting_team`
+- `both`
+- `staff`
+- `officials`
+
 ## Schedule Mapping Fields
 
 A schedule upload should eventually map raw rows into normalized game records.
@@ -231,6 +261,8 @@ Event types may include:
 - Postgame meal.
 - Curfew.
 - Return travel.
+
+Generated pre-game timing events should be marked `needs_review` until confirmed by the host school, official game sheet, or user.
 
 ## Privacy Notes
 
