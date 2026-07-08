@@ -103,3 +103,9 @@ Reason: The original MVP field inventory contains useful data architecture notes
 The MVP should use progressive disclosure for trip fields.
 
 Reason: The product may need to manage many operational data fields internally, but showing every possible field to users would overwhelm them. The MVP should surface only primary sections, missing inputs, open requests, confirmations, and final outputs by default.
+
+## Decision: Baseball pre-game timing should be generated from reusable timing rules
+
+Baseball pre-game timing should be generated from reusable timing rules.
+
+Reason: Baseball pre-game workflows often follow a predictable countdown from first pitch. CAOV can reduce manual entry by generating suggested pre-game itinerary events from game time, while keeping them editable and marked as `needs_review` until confirmed.
